@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Exercice 4</title>
+	<link rel="stylesheet" href="stockage/ressources.css">
+	<script language="javascript">
+
+		function lireProprietesImage() {
+			let image = document.getElementById("mon-image");
+			let bordure = image.style.border;
+			let hauteur = image.height;
+			let largeur = image.width;
+			let nom = image.name;
+			let source = image.src;
+
+			let champBordure = document.getElementById("valeurBordure");
+			let champHauteur = document.getElementById("valeurHauteur");
+			let champLargeur = document.getElementById("valeurLargeur");
+			let champNom = document.getElementById("valeurNom");
+			let champSource = document.getElementById("valeurSource");
+
+			champBordure.value = bordure;
+			champHauteur.value = hauteur;
+			champLargeur.value = largeur;
+			champNom.value = nom;
+			champSource.value = source;
+		}
+
+		function ecrireProprietes() {
+			let image = document.getElementById("mon-image");
+			let champBordure = document.getElementById("valeurBordure");
+			let champHauteur = document.getElementById("valeurHauteur");
+			let champLargeur = document.getElementById("valeurLargeur");
+			let champNom = document.getElementById("valeurNom");
+			let champSource = document.getElementById("valeurSource");
+			
+			image.src = champSource.value;
+			image.style.border = champBordure.value;
+			
+			image.height = champHauteur.value;
+			image.width = champLargeur.value;
+			if (champLargeur.value < 50){
+				image.width = 50;
+			}
+			if (champHauteur.value < 50){
+				image.height = 50;
+			}
+			image.name = champNom.value;
+			lireProprietesImage();
+		}
+	</script>
+</head>
+
+<body>
+	<header>
+		<img src="stockage/epf_logo_new.png" class="logo-epf" alt="Le logo de l'EPF" height="60">
+		<nav>
+			<menu>
+				<li><a href="#" title="Accueil"><img src="stockage/house.svg" alt="Une maison stylisée" height="15"></a></li>
+				<li><a href="#">Intégration HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">Javascript</a></li>
+				<li><a href="#">PHP</a></li>
+				<li><a href="#">Autres</a></li>
+			</menu>
+		</nav>
+	</header>
+	<section>
+		<div id="import">
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMnomzjh-rm7-fZkZOlmXyuGZA2QiL_VC60yUJnX4B-g&s" 
+			class="image-en-ligne" alt="Image" id="mon-image">
+		</div>
+		<form class="info">
+			<fieldset>
+				<legend>Propriété d'une image</legend>
+				<div class="boutons">
+					<button type="button" id="lirePropriétés" onclick="lireProprietesImage()">Lire Propriété</button>
+					<button type="button" id="ecrirePropriétés" onclick="ecrireProprietes()">Ecrire Propriété</button>
+				</div>
+				<br>
+				<div class="parametres">
+					<label for="bordure">Bordure :</label>
+					<br>
+					<input type="text" id="valeurBordure">
+					<br>
+					<label for="hauteur">Hauteur :</label>
+					<br>
+					<input type="text" id="valeurHauteur">
+					<br>
+					<label for="largeur">Largeur :</label>
+					<br>
+					<input type="text" id="valeurLargeur">
+					<br>
+					<label for="nom">Nom :</label>
+					<br>
+					<input type="text" id="valeurNom">
+					<br>
+					<label for="source">Source :</label>
+					<br>
+					<input type="text" id="valeurSource">
+					<br>
+				</div>
+			</fieldset>
+		</form>
+	</section>
+	<footer>
+		<p>© 2023 - Corentin LE GOFF - Tous droits réservés</p>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title> TP JavaScript </title>
+    <style>
+        body {
+            // Ajouter un code ici
+        }
+
+        fieldset {
+            // Ajouter un code ici
+        }
+
+        #PU {
+            // Ajouter un code ici
+        }
+
+        #TVA {
+            // Ajouter un code ici
+        }
+
+        #QT {
+            // Ajouter un code ici
+        }
+
+        #PT {
+            // Ajouter un code ici
+        }
+    </style>
+    <script language="javascript">
+        function Calculer_PrixTTC() {
+            let Champ_Texte_PU;
+            let Champ_Texte_TVA;
+            let Champ_Texte_QT;
+            let Champ_Texte_PTTC;
+            let Prix_Unitaire;
+            let Taux_TVA;
+            let Quantite;
+            let Prix_TTC;
+            Champ_Texte_PU = document.getElementById('PU');
+            Champ_Texte_TVA = document.getElementById('TVA');
+            Champ_Texte_QT = document.getElementById('QT');
+            Champ_Texte_PTTC = document.getElementById('PT');
+            Prix_Unitaire = parseFloat(Champ_Texte_PU.value);
+            Taux_TVA = parseFloat(Champ_Texte_TVA.value);
+            Quantite = parseFloat(Champ_Texte_QT.value);
+            Prix_TTC =
+                (Prix_Unitaire * Quantite) + (Prix_Unitaire * Quantite * Taux_TVA / 100);
+            Champ_Texte_PTTC.value = Prix_TTC;
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend> Calcul du Prix TTC </legend>
+        Prix unitaire HTC : <br>
+        <input type="text" size="20" id="PU" />
+        <br>
+        Taux TVA : <br>
+        <input type="text" size="20" id="TVA" />
+        <br>
+        Quantité : <br>
+        <input type="text" size="20" id="QT" />
+        <br>
+        <input type="button" value="Calculer" Onclick="Calculer_PrixTTC();" />
+        <br>
+        Prix TTC : <br>
+        <input type="text" size="20" id="PT" />
+    </fieldset>
+</body>
+
+</html>

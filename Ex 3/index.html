@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Exercice 3</title>
+	<link rel="stylesheet" href="stockage/ressources.css">
+	<script language="javascript">
+		function Calculer_Resultat() {
+			let Champ_Select_Entree;
+			let Champ_Select_Plat;
+			let Champ_Select_Dessert;
+			let Champ_Text_Entree;
+			let Champ_Text_Plat;
+			let Champ_Text_Dessert;
+			let Champ_Text_Total;
+
+			Champ_Select_Entree = document.getElementById('Entrée');
+			Champ_Select_Plat = document.getElementById('Plat');
+			Champ_Select_Dessert = document.getElementById('Dessert');
+
+			Champ_Text_Entree = document.getElementById('montantEntrée');
+			Champ_Text_Plat = document.getElementById('montantPlat');
+			Champ_Text_Dessert = document.getElementById('montantDessert');
+			Champ_Text_Total = document.getElementById('total');
+
+
+			Champ_Text_Entree.value = Champ_Select_Entree.value;
+			Champ_Text_Plat.value = Champ_Select_Plat.value;
+			Champ_Text_Dessert.value = Champ_Select_Dessert.value;
+
+			Champ_Text_Total.value =
+				parseFloat(Champ_Text_Entree.value) + parseFloat(Champ_Text_Plat.value) + parseFloat(Champ_Text_Dessert.value);
+			//console.log(Champ_Text_Total.value);
+		}
+	</script>
+</head>
+
+<body>
+	<header>
+		<img src="stockage/epf_logo_new.png" class="logo-epf" alt="Le logo de l'EPF" height="60">
+		<nav>
+			<menu>
+				<li><a href="#" title="Accueil"><img src="stockage/house.svg" alt="Une maison stylisée" height="15"></a>
+				</li>
+				<li><a href="#">Intégration HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">Javascript</a></li>
+				<li><a href="#">PHP</a></li>
+				<li><a href="#">Autres</a></li>
+			</menu>
+		</nav>
+	</header>
+	<div class="formulaire">
+		<h1>Composez votre menu</h1>
+		<div class="barre-selection">
+			<p>Entrée:</p>
+			<select name="Entrée" id="Entrée">
+				<option value="5">Légumes d'hiver</option>
+				<option value="15">Légumes d'été</option>
+				<option value="10">Légumes de printemps</option>
+				<option value="8">Légumes d'automne</option>
+			</select>
+			<p>Plat:</p>
+			<select name="Plat" id="Plat">
+				<option value="5">Tartare de bar au gingembre</option>
+				<option value="10">Tomates farcies</option>
+				<option value="150">Saumon aux herbes de provance sous son coulis de miel des Alpes du Hèze</option>
+				<option value="0">Pattates sautés</option>
+			</select>
+			<p>Dessert:</p>
+			<select name="Dessert" id="Dessert">
+				<option value="3.5">Pancakes</option>
+				<option value="10">Bananasplit avec son coulis de framboises</option>
+			</select>
+			<input type="button" value="Choisir" onclick="Calculer_Resultat()">
+		</div>
+		<h1>Montant à payer</h1>
+
+		<div class="partie">
+			<p>Entrée :
+				<output id="montantEntrée" name="montantEntrée"></output>
+				<br><br>Plat :
+				<output id="montantPlat" name="montantPlat"></output>
+				<br><br>Dessert :
+				<output id="montantDessert" name="montantDessert"></output>
+			</p>
+		</div>
+		<p><strong>Total : <output id="total" name="total"></output> €</strong></p>
+</body>
+
+</html>
